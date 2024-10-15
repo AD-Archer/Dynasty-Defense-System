@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export default function Login({ togglePage, showLogin }) {
+  const navigate = useNavigate(); // Create a navigate function
+
   // Function to handle login
   const handleLogin = (event) => {
     event.preventDefault(); // Prevent form submission
@@ -19,8 +22,8 @@ export default function Login({ togglePage, showLogin }) {
     const users = JSON.parse(localStorage.getItem("users")) || {};
     if (users[username] && users[username] === password) {
       alert("Login successful!");
-      // Proceed to next steps after successful login (e.g., redirecting to another page)
-      // window.location.href = "/dashboard"; // Example redirect
+      // Redirect to the HomePage after successful login
+      navigate("/home"); // Adjust the path according to your route configuration
     } else {
       alert("Invalid username or password.");
     }
