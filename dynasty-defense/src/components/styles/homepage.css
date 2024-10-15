@@ -76,7 +76,6 @@
   justify-content: center; /* Center cards in the section */
   flex-wrap: wrap; /* Allow wrapping to next line if needed */
 }
-
 .sensor-card,
 .alarm-card {
   background-color: #383838;
@@ -88,13 +87,17 @@
   align-items: center; /* Center items horizontally */
   text-align: center; /* Center text */
   width: 150px; /* Set a fixed width for the cards */
-  height: 200px; /* Set a fixed height for the cards to ensure uniformity */
+  height: 200px; /* Ensure both types have the same height */
 }
 
-.sensor-icon {
-  width: 60px; /* Set width for icons */
-  height: 60px; /* Set height for icons */
+.sensor-icon,
+.alarm-icon {
+  width: 60px; /* Set a fixed width for icons */
+  height: auto; /* Maintain aspect ratio */
   margin-bottom: 10px; /* Space between icon and text */
+  max-width: 100%; /* Ensure it doesn't exceed the parent width */
+  display: block; /* Ensure it behaves like a block element */
+  margin: 0 auto; /* Center the icon horizontally */
 }
 
 .alarm-button {
@@ -102,15 +105,11 @@
   color: white;
   border: none;
   padding: 10px;
-  font-size: 10px;
+  font-size: 12px; /* Match font size */
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
   margin: 5px 0; /* Spacing between buttons */
-}
-
-.alarm-button:hover {
-  background-color: #357abd;
 }
 
 .last-triggered-text {
@@ -119,3 +118,16 @@
   color: #bbb; /* Set a light gray color */
   margin-top: auto; /* Push the text to the bottom of the card */
 }
+
+.alarm-button:hover {
+  background-color: #357abd;
+}
+
+.alarm-icon {
+  width: 60px; /* Set a fixed width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure it doesn't exceed the parent width */
+  display: block; /* Ensure it behaves like a block element */
+  margin: 0 auto; /* Center the icon horizontally */
+}
+
