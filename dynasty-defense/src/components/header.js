@@ -1,3 +1,7 @@
 export default function Header() {
-    return (<h1>Welcome to our website!</h1>)
+    return (
+      <header>
+        <h1>Dynasty Defense Security</h1>
+      </header>
+    );
 }

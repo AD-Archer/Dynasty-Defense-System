@@ -1,12 +1,22 @@
-import './App.css';
-import Footer from "./components/footer.js";
-import Header from "./components/header.js";
-import Form from "./components/login.js";
+import React, { useState } from "react";
+import "./App.css";
+import Register from "./components/register.js";
+import Login from "./components/login.js";
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+
+  const togglePage = () => {
+    setShowLogin(!showLogin);
+  };
+
   return (
     <div className="App">
-      <Form />
+      {showLogin ? (
+        <Login togglePage={togglePage} showLogin={showLogin} />
+      ) : (
+        <Register togglePage={togglePage} showLogin={showLogin} />
+      )}
     </div>
   );
 }
